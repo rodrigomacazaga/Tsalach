@@ -8,7 +8,7 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section className="section bg-sand-50">
+    <section className="section bg-sand">
       <div className="container-tight">
         <SectionHeader
           eyebrow="Preguntas frecuentes"
@@ -17,7 +17,7 @@ export default function FAQ() {
         />
 
         <Reveal>
-          <div className="mx-auto max-w-3xl divide-y divide-sand-200 overflow-hidden rounded-2xl border border-sand-200 bg-white">
+          <div className="mx-auto max-w-3xl divide-y divide-line overflow-hidden rounded-card border border-line bg-surface">
             {faqs.map((f, i) => {
               const isOpen = open === i
               return (
@@ -26,11 +26,11 @@ export default function FAQ() {
                     <button
                       onClick={() => setOpen(isOpen ? null : i)}
                       aria-expanded={isOpen}
-                      className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-sand-50"
+                      className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-bg"
                     >
-                      <span className="text-sm font-semibold text-ink sm:text-base">{f.q}</span>
+                      <span className="font-serif text-base text-fg sm:text-lg">{f.q}</span>
                       <span
-                        className={`flex h-6 w-6 flex-none items-center justify-center rounded-full border border-sand-300 text-brand-700 transition-transform ${
+                        className={`flex h-6 w-6 flex-none items-center justify-center rounded-full border border-line text-bronze transition-transform ${
                           isOpen ? 'rotate-45' : ''
                         }`}
                         aria-hidden="true"
@@ -50,7 +50,7 @@ export default function FAQ() {
                         transition={{ duration: 0.25, ease: 'easeInOut' }}
                         className="overflow-hidden"
                       >
-                        <p className="px-5 pb-5 text-sm leading-relaxed text-ink-muted">{f.a}</p>
+                        <p className="px-6 pb-5 text-sm leading-relaxed text-fg-soft">{f.a}</p>
                       </motion.div>
                     )}
                   </AnimatePresence>

@@ -9,7 +9,7 @@ import {
   YAxis,
 } from 'recharts'
 import { scenarioChartData } from '../../data/content'
-import { axisStyle, chartColors, compactMXN, fullMXN } from './theme'
+import { axisStyle, chartColors, compactMXN, fullMXN, tooltipStyle } from './theme'
 
 /** Ingresos vs inversión vs utilidad por escenario (grouped bar chart). */
 export default function FinancialComparisonChart() {
@@ -26,19 +26,14 @@ export default function FinancialComparisonChart() {
           width={52}
         />
         <Tooltip
-          cursor={{ fill: 'rgba(51,88,73,0.06)' }}
+          cursor={{ fill: 'rgba(154,106,60,0.08)' }}
           formatter={(v: number, name: string) => [fullMXN(v), name]}
-          contentStyle={{
-            borderRadius: 12,
-            border: '1px solid #e9e1d3',
-            fontSize: 13,
-            boxShadow: '0 8px 24px -12px rgba(28,26,23,0.2)',
-          }}
+          contentStyle={tooltipStyle}
         />
-        <Legend iconType="circle" wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
-        <Bar dataKey="Ingresos" fill={chartColors.brand} radius={[4, 4, 0, 0]} maxBarSize={38} />
-        <Bar dataKey="Inversión" fill={chartColors.sand} radius={[4, 4, 0, 0]} maxBarSize={38} />
-        <Bar dataKey="Utilidad" fill={chartColors.gold} radius={[4, 4, 0, 0]} maxBarSize={38} />
+        <Legend iconType="circle" wrapperStyle={{ fontSize: 12, paddingTop: 8, fontFamily: 'Archivo, sans-serif' }} />
+        <Bar dataKey="Ingresos" fill={chartColors.ink} radius={[4, 4, 0, 0]} maxBarSize={38} />
+        <Bar dataKey="Inversión" fill={chartColors.bronzeSoft} radius={[4, 4, 0, 0]} maxBarSize={38} />
+        <Bar dataKey="Utilidad" fill={chartColors.bronze} radius={[4, 4, 0, 0]} maxBarSize={38} />
       </BarChart>
     </ResponsiveContainer>
   )

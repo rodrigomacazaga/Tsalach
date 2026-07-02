@@ -4,7 +4,7 @@ import SectionHeader from './SectionHeader'
 
 export default function InvestmentThesis() {
   return (
-    <section className="section bg-sand-50">
+    <section className="section bg-sand">
       <div className="container-tight">
         <SectionHeader
           eyebrow="Tesis para el inversionista"
@@ -15,12 +15,12 @@ export default function InvestmentThesis() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {thesis.map((t, i) => (
             <Reveal key={t.titulo} delay={i * 0.06}>
-              <div className="card h-full p-6">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-700 text-lg font-bold text-sand-50">
+              <div className="card h-full p-8">
+                <div className="font-serif text-3xl font-normal text-bronze">
                   {String(i + 1).padStart(2, '0')}
                 </div>
-                <h3 className="mt-4 text-base font-semibold text-ink">{t.titulo}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-muted">{t.texto}</p>
+                <h3 className="mt-4 font-serif text-lg font-normal text-fg">{t.titulo}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-fg-soft">{t.texto}</p>
               </div>
             </Reveal>
           ))}

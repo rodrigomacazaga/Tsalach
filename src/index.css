@@ -5,22 +5,28 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* Offset anchor jumps for the sticky navbar */
     scroll-padding-top: 84px;
     -webkit-text-size-adjust: 100%;
   }
 
   body {
-    @apply bg-sand-50 text-ink antialiased;
-    font-feature-settings: 'kern', 'liga', 'calt';
+    @apply bg-bg font-sans text-fg antialiased;
+    font-feature-settings: 'kern', 'liga';
   }
 
-  h1, h2, h3, h4 {
-    @apply text-ink tracking-tight;
-    text-wrap: balance;
+  /* Títulos y cifras: Spectral en peso regular (el aire premium viene del peso ligero) */
+  h1,
+  h2 {
+    @apply font-serif font-normal text-fg;
+    line-height: 1.06;
+    letter-spacing: -0.01em;
   }
 
-  /* Respect reduced motion preferences */
+  h3,
+  h4 {
+    @apply font-sans font-semibold text-fg;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
@@ -34,9 +40,8 @@
     }
   }
 
-  /* Visible focus for keyboard users */
   :focus-visible {
-    outline: 2px solid #335849;
+    outline: 2px solid #9a6a3c;
     outline-offset: 2px;
     border-radius: 4px;
   }
@@ -44,38 +49,58 @@
 
 @layer components {
   .container-tight {
-    @apply mx-auto w-full max-w-content px-5 sm:px-8;
+    @apply mx-auto w-full max-w-content;
+    padding-left: clamp(20px, 6vw, 80px);
+    padding-right: clamp(20px, 6vw, 80px);
   }
 
   .section {
-    @apply scroll-mt-20 py-16 sm:py-24;
+    @apply scroll-mt-20;
+    padding-top: clamp(56px, 9vw, 104px);
+    padding-bottom: clamp(56px, 9vw, 104px);
   }
 
-  .eyebrow {
-    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-600;
+  /* Kicker / etiqueta de sección — Archivo 600, bronce, uppercase */
+  .kicker {
+    @apply inline-flex items-center gap-2 font-sans text-[13px] font-semibold uppercase text-bronze sm:text-sm;
+    letter-spacing: 3px;
   }
 
+  /* Caption técnica / "por validar" — Roboto Mono, tono apagado */
+  .mono-note {
+    @apply font-mono text-[13px] text-fg-mute;
+    letter-spacing: 0.03em;
+  }
+
+  /* Tarjeta clara — jerarquía por borde y contraste, sin sombra */
   .card {
-    @apply rounded-2xl border border-sand-200 bg-white shadow-card;
+    @apply rounded-card border border-line bg-surface;
   }
 
+  /* Tarjeta oscura (énfasis) */
+  .card-dark {
+    @apply rounded-card bg-ink text-ondark;
+  }
+
+  /* Botón / CTA tipo píldora */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-sans text-sm font-semibold transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-bronze focus-visible:ring-offset-2 focus-visible:ring-offset-bg;
+    letter-spacing: 0.3px;
   }
 
   .btn-primary {
-    @apply btn bg-brand-700 text-white hover:bg-brand-800 shadow-card hover:shadow-card-hover;
+    @apply btn bg-bronze-soft text-ink hover:bg-bronze hover:text-ondark;
   }
 
   .btn-secondary {
-    @apply btn border border-sand-300 bg-white text-ink-soft hover:border-brand-600 hover:text-brand-700;
+    @apply btn border border-line bg-transparent text-fg hover:border-bronze hover:text-bronze;
   }
 
-  .btn-whatsapp {
-    @apply btn bg-[#25D366] text-white hover:bg-[#1eb857] shadow-card;
+  /* Botón sobre fondo oscuro */
+  .btn-on-dark {
+    @apply btn bg-bronze-soft text-ink hover:bg-ondark;
   }
 
-  /* Table wrapper that scrolls horizontally on small screens */
   .table-scroll {
     @apply -mx-5 overflow-x-auto px-5 sm:mx-0 sm:px-0;
   }

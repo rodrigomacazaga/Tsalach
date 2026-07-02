@@ -6,7 +6,7 @@ import SectionHeader from './SectionHeader'
 
 export default function AssetComposition() {
   return (
-    <section id="activos" className="section bg-white">
+    <section id="activos" className="section bg-bg">
       <div className="container-tight">
         <SectionHeader
           eyebrow="Composición del paquete"
@@ -14,13 +14,13 @@ export default function AssetComposition() {
           description="El paquete combina suelo con tres vocaciones distintas, lo que habilita rutas de monetización independientes o escalonadas."
         />
 
-        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
           {/* Tabla */}
           <Reveal>
             <div className="table-scroll">
               <table className="w-full min-w-[560px] border-collapse text-sm">
                 <thead>
-                  <tr className="border-b border-sand-200 text-left text-xs uppercase tracking-wide text-ink-muted">
+                  <tr className="border-b-2 border-fg text-left font-sans text-[11px] uppercase tracking-[1px] text-fg-mute">
                     <th className="py-3 pr-4 font-semibold">Activo</th>
                     <th className="py-3 pr-4 font-semibold">Superficie</th>
                     <th className="py-3 pr-4 font-semibold">Vocación</th>
@@ -29,15 +29,15 @@ export default function AssetComposition() {
                 </thead>
                 <tbody>
                   {assets.map((a) => (
-                    <tr key={a.nombre} className="border-b border-sand-100 align-top">
-                      <td className="py-4 pr-4 font-semibold text-ink">{a.nombre}</td>
-                      <td className="py-4 pr-4 tabular-nums text-ink-soft">{num(a.superficie)} m²</td>
-                      <td className="py-4 pr-4 text-ink-soft">{a.vocacion}</td>
-                      <td className="py-4 text-ink-soft">{a.estrategia}</td>
+                    <tr key={a.nombre} className="border-b border-line align-top">
+                      <td className="py-4 pr-4 font-serif text-base text-fg">{a.nombre}</td>
+                      <td className="py-4 pr-4 tabular-nums text-fg-soft">{num(a.superficie)} m²</td>
+                      <td className="py-4 pr-4 text-fg-soft">{a.vocacion}</td>
+                      <td className="py-4 text-fg-soft">{a.estrategia}</td>
                     </tr>
                   ))}
-                  <tr className="bg-sand-50 font-semibold text-ink">
-                    <td className="py-4 pr-4">Superficie total</td>
+                  <tr className="font-medium text-bronze">
+                    <td className="py-4 pr-4 font-serif text-base">Superficie total</td>
                     <td className="py-4 pr-4 tabular-nums">{num(DEAL.superficieTotal)} m²</td>
                     <td className="py-4 pr-4" colSpan={2}>
                       {mxn(DEAL.inversionTotal)} · {mxn(DEAL.precioPromedioM2)}/m² promedio

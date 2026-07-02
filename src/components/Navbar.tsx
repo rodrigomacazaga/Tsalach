@@ -39,7 +39,7 @@ export default function Navbar() {
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'border-b border-sand-200 bg-sand-50/90 backdrop-blur-md' : 'bg-sand-50/70 backdrop-blur-sm'
+        scrolled ? 'border-b border-line bg-bg/90 backdrop-blur-md' : 'bg-bg/70 backdrop-blur-sm'
       }`}
     >
       <nav className="container-tight flex h-16 items-center justify-between">
@@ -49,12 +49,12 @@ export default function Navbar() {
           className="flex items-center gap-2.5 text-left"
           aria-label="Inversión Tsalach 2026 — ir al inicio"
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-700 text-sm font-bold text-sand-50">
+          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-ink font-serif text-base text-ondark">
             T
           </span>
           <span className="leading-none">
-            <span className="block text-sm font-semibold text-ink">Inversión Tsalach</span>
-            <span className="block text-[11px] font-medium tracking-wider text-brand-600">2026 · QUERÉTARO</span>
+            <span className="block font-serif text-[15px] text-fg">Inversión Tsalach</span>
+            <span className="mt-0.5 block font-mono text-[10px] tracking-[0.15em] text-bronze">2026 · QUERÉTARO</span>
           </span>
         </button>
 
@@ -66,8 +66,8 @@ export default function Navbar() {
                 onClick={() => go(item.id)}
                 className={`rounded-full px-3 py-2 text-sm font-medium transition-colors ${
                   active === item.id
-                    ? 'text-brand-700'
-                    : 'text-ink-muted hover:text-ink'
+                    ? 'text-bronze'
+                    : 'text-fg-mute hover:text-fg'
                 }`}
               >
                 {item.label}
@@ -85,7 +85,7 @@ export default function Navbar() {
         {/* Hamburguesa (móvil / tablet) */}
         <button
           onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-sand-200 text-ink lg:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-lg border border-line text-fg lg:hidden"
           aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={open}
           aria-controls="mobile-menu"
@@ -99,7 +99,7 @@ export default function Navbar() {
       {/* Menú móvil */}
       <div
         id="mobile-menu"
-        className={`overflow-hidden border-t border-sand-200 bg-sand-50 transition-[max-height] duration-300 ease-in-out lg:hidden ${
+        className={`overflow-hidden border-t border-line bg-bg transition-[max-height] duration-300 ease-in-out lg:hidden ${
           open ? 'max-h-[520px]' : 'max-h-0'
         }`}
       >
@@ -109,7 +109,7 @@ export default function Navbar() {
               <button
                 onClick={() => go(item.id)}
                 className={`w-full rounded-lg px-4 py-3 text-left text-base font-medium transition-colors ${
-                  active === item.id ? 'bg-brand-50 text-brand-700' : 'text-ink-soft hover:bg-sand-100'
+                  active === item.id ? 'bg-sand text-bronze' : 'text-fg-soft hover:bg-sand'
                 }`}
               >
                 {item.label}

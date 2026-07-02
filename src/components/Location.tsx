@@ -8,7 +8,7 @@ const icons = ['road', 'home', 'store', 'building', 'pin'] as const
 
 export default function Location() {
   return (
-    <section id="ubicacion" className="section bg-sand-50">
+    <section id="ubicacion" className="section bg-sand">
       <div className="container-tight">
         <SectionHeader
           eyebrow="Ubicación y entorno"
@@ -19,9 +19,8 @@ export default function Location() {
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
           <Reveal>
             <ImagePlaceholder
-              variant="road"
               alt="Imagen de apoyo para representar la conectividad urbana y vialidades principales cercanas al paquete inmobiliario en Querétaro"
-              caption="Referencia de conectividad urbana"
+              caption="Referencia de conectividad urbana (aquí va una foto real)"
               className="aspect-[4/3] w-full"
             />
           </Reveal>
@@ -30,27 +29,22 @@ export default function Location() {
             {locationCards.map((c, i) => (
               <Reveal key={c} delay={i * 0.06}>
                 <div className="card flex h-full items-start gap-3 p-5">
-                  <span className="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-brand-50 text-brand-700">
+                  <span className="flex h-10 w-10 flex-none items-center justify-center rounded-[14px] bg-sand text-bronze">
                     <Icon name={icons[i % icons.length]} />
                   </span>
-                  <p className="text-sm font-medium leading-snug text-ink-soft">{c}</p>
+                  <p className="text-sm font-medium leading-snug text-fg-soft">{c}</p>
                 </div>
               </Reveal>
             ))}
 
             {/* Placeholder de mapa */}
             <Reveal delay={0.3} className="sm:col-span-2">
-              <div className="relative overflow-hidden rounded-2xl border border-dashed border-sand-300">
-                <ImagePlaceholder
-                  variant="map"
-                  alt="Espacio reservado para mapa de ubicación; coordenadas exactas por integrar y validar"
-                  caption="Mapa de ubicación por integrar / validar con coordenadas exactas"
-                  className="aspect-[16/7] w-full rounded-none border-0"
-                />
-                <span className="absolute right-3 top-3 rounded-full bg-gold-500 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-white">
-                  Por validar
-                </span>
-              </div>
+              <ImagePlaceholder
+                tag="Mapa · por validar"
+                alt="Espacio reservado para mapa de ubicación; coordenadas exactas por integrar y validar"
+                caption="Mapa de ubicación por integrar / validar con coordenadas exactas"
+                className="aspect-[16/7] w-full"
+              />
             </Reveal>
           </div>
         </div>

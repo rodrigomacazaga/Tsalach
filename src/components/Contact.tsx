@@ -36,29 +36,29 @@ export default function Contact() {
   }
 
   return (
-    <section id="contacto" className="section bg-white">
+    <section id="contacto" className="section bg-bg">
       <div className="container-tight">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           {/* Copy */}
           <Reveal>
-            <span className="eyebrow">Contacto</span>
-            <h2 className="mt-3 text-2xl font-semibold sm:text-3xl md:text-4xl">
+            <span className="kicker">Contacto</span>
+            <h2 className="mt-4 text-[2rem] leading-[1.08] sm:text-4xl md:text-[2.75rem]">
               Solicita el paquete completo de inversión
             </h2>
-            <p className="mt-4 max-w-lg text-base leading-relaxed text-ink-muted">
+            <p className="mt-5 max-w-lg text-lg font-light leading-relaxed text-fg-soft">
               Comparte tus datos para recibir el modelo financiero editable, carpeta legal preliminar,
               comparables de mercado y calendario de presentación.
             </p>
 
-            <ul className="mt-6 space-y-3">
+            <ul className="mt-7 space-y-3">
               {[
                 'Modelo financiero editable',
                 'Carpeta legal preliminar',
                 'Comparables de mercado',
                 'Calendario de presentación',
               ].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm text-ink-soft">
-                  <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-brand-50 text-brand-700">
+                <li key={item} className="flex items-center gap-3 text-[15px] text-fg-soft">
+                  <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-sand text-bronze">
                     <Icon name="check" className="h-3.5 w-3.5" />
                   </span>
                   {item}
@@ -66,14 +66,19 @@ export default function Contact() {
               ))}
             </ul>
 
-            <div className="mt-8">
-              <a href={whatsappHref()} target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+            <div className="mt-9">
+              <a
+                href={whatsappHref()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn bg-ink text-ondark hover:bg-fg"
+              >
                 <Icon name="whatsapp" className="h-5 w-5" />
                 Enviar mensaje por WhatsApp
               </a>
-              <p className="mt-3 text-xs text-ink-muted">
+              <p className="mt-4 text-sm text-fg-soft">
                 También puedes escribir a{' '}
-                <a href={`mailto:${CONTACT_EMAIL}`} className="font-medium text-brand-700 underline">
+                <a href={`mailto:${CONTACT_EMAIL}`} className="font-medium text-bronze underline underline-offset-2">
                   {CONTACT_EMAIL}
                 </a>
               </p>
@@ -85,11 +90,11 @@ export default function Contact() {
             <div className="card p-6 sm:p-8">
               {status === 'success' ? (
                 <div className="flex flex-col items-center py-10 text-center">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-50 text-brand-700">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-sand text-bronze">
                     <Icon name="check" className="h-7 w-7" />
                   </span>
-                  <h3 className="mt-4 text-lg font-semibold text-ink">Solicitud recibida</h3>
-                  <p className="mt-2 max-w-sm text-sm text-ink-muted">
+                  <h3 className="mt-4 font-serif text-xl font-normal text-fg">Solicitud recibida</h3>
+                  <p className="mt-2 max-w-sm text-sm text-fg-soft">
                     Gracias por tu interés. Nos pondremos en contacto para compartir el paquete completo
                     de información.
                   </p>
@@ -124,14 +129,14 @@ export default function Contact() {
                   <Field label="Monto estimado de inversión" name="monto" placeholder="Ej. $10,000,000 MXN" />
 
                   <div>
-                    <label htmlFor="mensaje" className="mb-1.5 block text-sm font-medium text-ink-soft">
+                    <label htmlFor="mensaje" className="mb-1.5 block text-sm font-medium text-fg-soft">
                       Mensaje
                     </label>
                     <textarea
                       id="mensaje"
                       name="mensaje"
                       rows={4}
-                      className="w-full rounded-xl border border-sand-300 bg-white px-4 py-2.5 text-sm text-ink placeholder:text-ink-muted/60 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-100"
+                      className="w-full rounded-[14px] border border-line bg-bg px-4 py-2.5 text-sm text-fg placeholder:text-fg-mute/70 focus:border-bronze focus:outline-none focus:ring-2 focus:ring-bronze/20"
                       placeholder="Cuéntanos qué información te gustaría revisar."
                     />
                   </div>
@@ -141,12 +146,12 @@ export default function Contact() {
                   </button>
 
                   {status === 'error' && (
-                    <p className="text-sm text-red-700">
+                    <p className="text-sm text-[#9a3b2c]">
                       No se pudo enviar. Verifica tu conexión o escríbenos por WhatsApp o correo.
                     </p>
                   )}
 
-                  <p className="text-center text-xs leading-relaxed text-ink-muted">
+                  <p className="mono-note text-center leading-relaxed">
                     Al enviar aceptas ser contactado para fines informativos. Tus datos se tratan de
                     forma confidencial.
                   </p>
@@ -172,8 +177,8 @@ interface FieldProps {
 function Field({ label, name, type = 'text', required, placeholder, autoComplete }: FieldProps) {
   return (
     <div>
-      <label htmlFor={name} className="mb-1.5 block text-sm font-medium text-ink-soft">
-        {label} {required && <span className="text-gold-600">*</span>}
+      <label htmlFor={name} className="mb-1.5 block text-sm font-medium text-fg-soft">
+        {label} {required && <span className="text-bronze">*</span>}
       </label>
       <input
         id={name}
@@ -182,7 +187,7 @@ function Field({ label, name, type = 'text', required, placeholder, autoComplete
         required={required}
         placeholder={placeholder}
         autoComplete={autoComplete}
-        className="w-full rounded-xl border border-sand-300 bg-white px-4 py-2.5 text-sm text-ink placeholder:text-ink-muted/60 focus:border-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-100"
+        className="w-full rounded-[14px] border border-line bg-bg px-4 py-2.5 text-sm text-fg placeholder:text-fg-mute/70 focus:border-bronze focus:outline-none focus:ring-2 focus:ring-bronze/20"
       />
     </div>
   )

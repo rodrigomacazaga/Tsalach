@@ -1,22 +1,23 @@
-/** Paleta y utilidades compartidas para las gráficas (Recharts). */
+/** Paleta de gráficas — tres tonos de la misma familia neutra + bronce (guía de estilo). */
 export const chartColors = {
-  brand: '#335849',
-  brandLight: '#3f6b57',
-  sand: '#c9b593',
-  gold: '#b58a2e',
-  ink: '#2c2925',
-  grid: '#e9e1d3',
-  axis: '#6b665e',
-  // Categóricos para escenarios / series
-  conservador: '#8a9a8f',
-  base: '#3f6b57',
-  optimista: '#b58a2e',
-  expansivo: '#28453a',
+  ink: '#211E18', // dato principal / oscuro
+  bronze: '#9A6A3C', // acento
+  bronzeSoft: '#B98A5E', // acento luminoso
+  grid: '#E4D9C7', // divisores
+  axis: '#948B7C', // ejes / etiquetas
+  fg: '#24211B',
+  sand: '#EFE8DB',
+  // Series categóricas (escenarios / ritmos) — misma familia
+  conservador: '#B98A5E',
+  base: '#9A6A3C',
+  optimista: '#211E18',
+  expansivo: '#211E18',
 }
 
 export const axisStyle = {
   fontSize: 12,
   fill: chartColors.axis,
+  fontFamily: 'Archivo, sans-serif',
 }
 
 /** Formatea montos grandes de forma compacta para ejes/tooltips. */
@@ -32,3 +33,13 @@ export const fullMXN = (n: number) =>
     currency: 'MXN',
     maximumFractionDigits: 0,
   }).format(n)
+
+/** Estilo compartido de tooltip. */
+export const tooltipStyle = {
+  borderRadius: 14,
+  border: '1px solid #E4D9C7',
+  fontSize: 13,
+  fontFamily: 'Archivo, sans-serif',
+  boxShadow: 'none',
+  color: '#24211B',
+}

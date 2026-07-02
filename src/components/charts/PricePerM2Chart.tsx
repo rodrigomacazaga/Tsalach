@@ -10,12 +10,12 @@ import {
   YAxis,
 } from 'recharts'
 import { pricePerM2Data } from '../../data/content'
-import { axisStyle, chartColors } from './theme'
+import { axisStyle, chartColors, tooltipStyle } from './theme'
 
 const tipoColor: Record<string, string> = {
-  entrada: chartColors.brand,
-  salida: chartColors.gold,
-  mercado: chartColors.sand,
+  entrada: chartColors.ink,
+  salida: chartColors.bronze,
+  mercado: chartColors.bronzeSoft,
 }
 
 const money = (n: number) => `$${new Intl.NumberFormat('es-MX').format(Math.round(n))}`
@@ -47,14 +47,9 @@ export default function PricePerM2Chart() {
           width={48}
         />
         <Tooltip
-          cursor={{ fill: 'rgba(51,88,73,0.06)' }}
+          cursor={{ fill: 'rgba(154,106,60,0.08)' }}
           formatter={(v: number) => [`${money(v)}/m²`, 'Precio']}
-          contentStyle={{
-            borderRadius: 12,
-            border: '1px solid #e9e1d3',
-            fontSize: 13,
-            boxShadow: '0 8px 24px -12px rgba(28,26,23,0.2)',
-          }}
+          contentStyle={tooltipStyle}
         />
         <Bar dataKey="valor" radius={[6, 6, 0, 0]} maxBarSize={64}>
           {pricePerM2Data.map((d, i) => (

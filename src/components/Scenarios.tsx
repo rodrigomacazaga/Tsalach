@@ -14,7 +14,7 @@ export default function Scenarios() {
   const s = scenarios[active]
 
   return (
-    <section id="escenarios" className="section bg-white">
+    <section id="escenarios" className="section bg-bg">
       <div className="container-tight">
         <SectionHeader
           eyebrow="Escenarios de negocio"
@@ -34,16 +34,16 @@ export default function Scenarios() {
               role="tab"
               aria-selected={active === i}
               onClick={() => setActive(i)}
-              className={`flex-1 rounded-xl border px-4 py-3 text-left transition-all ${
+              className={`flex-1 rounded-[14px] border px-5 py-4 text-left transition-colors ${
                 active === i
-                  ? 'border-brand-700 bg-brand-700 text-sand-50 shadow-card'
-                  : 'border-sand-200 bg-white text-ink-soft hover:border-brand-300'
+                  ? 'border-ink bg-ink text-ondark'
+                  : 'border-line bg-surface text-fg-soft hover:border-bronze'
               }`}
             >
-              <span className="block text-[11px] font-semibold uppercase tracking-wide opacity-80">
+              <span className={`block font-mono text-[11px] uppercase tracking-[0.1em] ${active === i ? 'text-bronze-soft' : 'text-fg-mute'}`}>
                 {sc.tag}
               </span>
-              <span className="mt-0.5 block text-sm font-semibold">{sc.titulo}</span>
+              <span className="mt-1 block font-serif text-base font-normal">{sc.titulo}</span>
             </button>
           ))}
         </div>
@@ -60,34 +60,34 @@ export default function Scenarios() {
           >
             {/* Detalle */}
             <div className="lg:col-span-3">
-              <div className="card h-full p-6">
-                <p className="text-sm leading-relaxed text-ink-muted">{s.subtitulo}</p>
+              <div className="card h-full p-6 sm:p-8">
+                <p className="text-base font-light leading-relaxed text-fg-soft">{s.subtitulo}</p>
 
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-5 flex flex-wrap gap-2">
                   {s.incluye.map((inc) => (
-                    <span key={inc} className="inline-flex items-center gap-1.5 rounded-full bg-sand-100 px-3 py-1 text-xs font-medium text-ink-soft">
-                      <Icon name="check" className="h-3 w-3 text-brand-600" />
+                    <span key={inc} className="inline-flex items-center gap-1.5 rounded-full bg-sand px-3 py-1 text-xs font-medium text-fg-soft">
+                      <Icon name="check" className="h-3 w-3 text-bronze" />
                       {inc}
                     </span>
                   ))}
                 </div>
 
-                <div className="mt-6 space-y-6">
+                <div className="mt-7 space-y-7">
                   {s.bloques.map((bloque) => (
                     <div key={bloque.titulo}>
-                      <h4 className="mb-3 text-sm font-semibold text-ink">{bloque.titulo}</h4>
-                      <dl className="divide-y divide-sand-100 rounded-xl border border-sand-200">
+                      <h4 className="mb-3 font-serif text-lg font-normal text-fg">{bloque.titulo}</h4>
+                      <dl className="divide-y divide-line rounded-[14px] border border-line">
                         {bloque.lineas.map((l) => (
                           <div
                             key={l.label}
                             className={`flex items-center justify-between gap-4 px-4 py-2.5 text-sm ${
-                              l.strong ? 'bg-brand-50' : ''
+                              l.strong ? 'bg-sand' : ''
                             }`}
                           >
-                            <dt className={l.strong ? 'font-semibold text-brand-800' : 'text-ink-muted'}>
+                            <dt className={l.strong ? 'font-semibold text-bronze' : 'text-fg-soft'}>
                               {l.label}
                             </dt>
-                            <dd className={`tabular-nums ${l.strong ? 'font-bold text-brand-800' : 'font-medium text-ink'}`}>
+                            <dd className={`tabular-nums ${l.strong ? 'font-semibold text-bronze' : 'font-medium text-fg'}`}>
                               {l.value}
                             </dd>
                           </div>
@@ -101,17 +101,15 @@ export default function Scenarios() {
 
             {/* Resumen numérico */}
             <div className="lg:col-span-2">
-              <div className="card h-full bg-brand-800 p-6 text-sand-50">
-                <span className="text-xs font-semibold uppercase tracking-wide text-sand-200">
-                  {s.tag}
-                </span>
-                <div className="mt-4 space-y-4">
+              <div className="card-dark h-full p-6 sm:p-8">
+                <span className="kicker text-bronze-soft">{s.tag}</span>
+                <div className="mt-5 space-y-5">
                   <Metric label="Utilidad total del escenario" value={mxn(s.utilidadTotal)} big />
                   <Metric label="Ingresos estimados" value={mxn(s.ingresos)} />
                   <Metric label="Inversión estimada" value={mxn(s.inversion)} />
                   <Metric label="Margen estimado sobre ingresos" value={`${((s.utilidadTotal / s.ingresos) * 100).toFixed(1)}%`} />
                 </div>
-                <p className="mt-6 text-xs leading-relaxed text-sand-200/90">
+                <p className="mono-note mt-7 leading-relaxed text-ondark-soft">
                   Utilidad, no ROI ni rendimiento garantizado. El modelo no incluye impuestos sobre
                   utilidad, costos financieros ni contingencias.
                 </p>
@@ -121,7 +119,7 @@ export default function Scenarios() {
         </AnimatePresence>
 
         {/* Gráficas comparativas */}
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        <div className="mt-14 grid gap-6 lg:grid-cols-2">
           <Reveal>
             <ChartCard title="Utilidad proyectada por escenario" subtitle="Modelo preliminar, en MXN">
               <ScenarioUtilityChart />
@@ -150,8 +148,14 @@ export default function Scenarios() {
 function Metric({ label, value, big }: { label: string; value: string; big?: boolean }) {
   return (
     <div>
-      <div className="text-xs font-medium text-sand-200">{label}</div>
-      <div className={`tabular-nums font-semibold ${big ? 'text-3xl text-gold-400' : 'text-lg'}`}>{value}</div>
+      <div className="text-xs font-medium text-ondark-soft">{label}</div>
+      <div
+        className={`font-serif font-normal tabular-nums ${
+          big ? 'text-[2.25rem] leading-tight text-bronze-soft' : 'text-xl text-ondark'
+        }`}
+      >
+        {value}
+      </div>
     </div>
   )
 }

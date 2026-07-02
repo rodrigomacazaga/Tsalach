@@ -4,46 +4,50 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Warm, institutional palette — sand / cream / stone + deep ink accents
+        // ── Guía de estilo Inversión Tsalach 2026 ──
+        // Fondos claros
+        bg: '#FAF7F1', // off-white cálido, fondo principal
         sand: {
-          50: '#faf8f4',
-          100: '#f4f0e8',
-          200: '#e9e1d3',
-          300: '#dccfb8',
-          400: '#c9b593',
-          500: '#b89b70',
+          DEFAULT: '#EFE8DB', // arena, secciones alternas
+          deep: '#E4D9C7', // arena profunda
         },
+        surface: '#FFFFFF', // tarjetas claras
+        line: '#E4D9C7', // bordes / divisores sobre claro
+
+        // Fondos oscuros
         ink: {
-          DEFAULT: '#1c1a17',
-          soft: '#2c2925',
-          muted: '#6b665e',
+          DEFAULT: '#211E18', // casi-negro cálido, secciones/tarjetas oscuras
+          line: '#3A362D', // líneas sobre oscuro
         },
-        brand: {
-          // Deep evergreen — trust, institutional
-          50: '#eef3f0',
-          100: '#d6e2db',
-          500: '#3f6b57',
-          600: '#335849',
-          700: '#28453a',
-          800: '#1e342c',
-          900: '#16271f',
+
+        // Texto sobre claro
+        fg: {
+          DEFAULT: '#24211B',
+          soft: '#6E675B',
+          mute: '#948B7C',
         },
-        gold: {
-          400: '#c9a24a',
-          500: '#b58a2e',
-          600: '#9a731f',
+        // Texto sobre oscuro
+        ondark: {
+          DEFAULT: '#FAF7F1',
+          soft: '#D8CFBF',
+        },
+
+        // Acento — único
+        bronze: {
+          DEFAULT: '#9A6A3C', // sobre fondo claro
+          soft: '#B98A5E', // sobre fondo oscuro (más luminoso)
         },
       },
       fontFamily: {
-        sans: ['ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Inter', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-        serif: ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'serif'],
-      },
-      boxShadow: {
-        card: '0 1px 2px rgba(28,26,23,0.04), 0 8px 24px -12px rgba(28,26,23,0.12)',
-        'card-hover': '0 2px 4px rgba(28,26,23,0.06), 0 16px 40px -16px rgba(28,26,23,0.18)',
+        serif: ['Spectral', 'ui-serif', 'Georgia', 'serif'],
+        sans: ['Archivo', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['"Roboto Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       maxWidth: {
-        content: '1180px',
+        content: '1240px',
+      },
+      borderRadius: {
+        card: '18px',
       },
       keyframes: {
         'fade-up': {

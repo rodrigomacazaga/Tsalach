@@ -6,20 +6,16 @@ import { scrollToId } from './cta'
 
 export default function Hero() {
   return (
-    <section id="resumen" className="relative scroll-mt-20 overflow-hidden">
-      {/* Fondo sutil */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-sand-100 via-sand-50 to-sand-50" />
-      <div className="pointer-events-none absolute -right-40 -top-40 -z-10 h-96 w-96 rounded-full bg-brand-50 blur-3xl" />
-
-      <div className="container-tight py-14 sm:py-20 lg:py-24">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+    <section id="resumen" className="relative scroll-mt-20 bg-bg">
+      <div className="container-tight py-16 sm:py-20 lg:py-28">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Columna texto */}
           <div>
             <motion.span
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="eyebrow"
+              className="kicker"
             >
               <Icon name="pin" className="h-4 w-4" />
               Oportunidad inmobiliaria · Querétaro
@@ -29,17 +25,17 @@ export default function Hero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.05 }}
-              className="mt-4 text-4xl font-semibold leading-[1.05] sm:text-5xl lg:text-6xl"
+              className="mt-6 font-serif text-[3rem] font-normal leading-[1.02] tracking-[-0.02em] text-fg sm:text-6xl lg:text-[4.25rem]"
             >
               Inversión<br />
-              <span className="text-brand-700">Tsalach 2026</span>
+              Tsalach 2026
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.12 }}
-              className="mt-5 max-w-xl text-base leading-relaxed text-ink-muted sm:text-lg"
+              className="mt-6 max-w-xl text-lg font-light leading-relaxed text-fg-soft sm:text-xl"
             >
               Oportunidad de adquisición y desarrollo inmobiliario en Querétaro con potencial de
               monetización por venta de tierra y desarrollo habitacional.
@@ -49,7 +45,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.19 }}
-              className="mt-8 flex flex-col gap-3 sm:flex-row"
+              className="mt-9 flex flex-col gap-3 sm:flex-row"
             >
               <button onClick={() => scrollToId('contacto')} className="btn-primary w-full sm:w-auto">
                 Solicitar información completa
@@ -60,7 +56,7 @@ export default function Hero() {
               </button>
             </motion.div>
 
-            <p className="mt-6 max-w-xl text-xs leading-relaxed text-ink-muted">
+            <p className="mono-note mt-8 max-w-xl leading-relaxed">
               Modelo preliminar sujeto a validación legal, técnica, fiscal, comercial y financiera. No
               constituye oferta pública de valores ni garantía de rendimiento.
             </p>
@@ -74,27 +70,26 @@ export default function Hero() {
             className="relative"
           >
             <ImagePlaceholder
-              variant="skyline"
               alt="Vista conceptual del entorno urbano de Querétaro con edificaciones de media y media alta densidad"
-              caption="Entorno urbano de Querétaro"
-              className="aspect-[4/3] w-full shadow-card-hover"
+              caption="Entorno urbano de Querétaro — referencia visual (aquí va una foto real)"
+              className="aspect-[4/3] w-full"
             />
           </motion.div>
         </div>
 
         {/* Métricas destacadas */}
-        <div className="mt-12 grid grid-cols-2 gap-3 sm:mt-16 sm:gap-4 md:grid-cols-3 lg:grid-cols-5">
+        <div className="mt-16 grid grid-cols-2 gap-4 sm:mt-20 md:grid-cols-3 lg:grid-cols-5">
           {heroMetrics.map((m, i) => (
             <motion.div
               key={m.label}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.25 + i * 0.06 }}
-              className="card p-4 sm:p-5"
+              className="card p-5"
             >
-              <div className="text-lg font-semibold text-ink sm:text-xl">{m.value}</div>
-              <div className="mt-1 text-xs font-medium leading-snug text-ink-soft">{m.label}</div>
-              <div className="mt-2 text-[11px] uppercase tracking-wide text-brand-600">{m.foot}</div>
+              <div className="font-serif text-xl font-normal text-fg sm:text-2xl">{m.value}</div>
+              <div className="mt-2 text-xs font-medium leading-snug text-fg-soft">{m.label}</div>
+              <div className="mono-note mt-3 text-[11px] uppercase tracking-[0.12em]">{m.foot}</div>
             </motion.div>
           ))}
         </div>

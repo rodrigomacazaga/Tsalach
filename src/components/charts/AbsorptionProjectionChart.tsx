@@ -9,7 +9,7 @@ import {
   YAxis,
 } from 'recharts'
 import { absorptionChartData } from '../../data/content'
-import { axisStyle, chartColors } from './theme'
+import { axisStyle, chartColors, tooltipStyle } from './theme'
 
 /** Unidades vendidas acumuladas por mes en tres escenarios de absorción. */
 export default function AbsorptionProjectionChart() {
@@ -35,17 +35,12 @@ export default function AbsorptionProjectionChart() {
         <Tooltip
           formatter={(v: number, name: string) => [`${v} unidades`, name]}
           labelFormatter={(l) => `Mes ${l}`}
-          contentStyle={{
-            borderRadius: 12,
-            border: '1px solid #e9e1d3',
-            fontSize: 13,
-            boxShadow: '0 8px 24px -12px rgba(28,26,23,0.2)',
-          }}
+          contentStyle={tooltipStyle}
         />
-        <Legend iconType="line" wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
-        <Line type="monotone" dataKey="Conservador" stroke={chartColors.conservador} strokeWidth={2.5} dot={{ r: 2.5 }} activeDot={{ r: 5 }} />
-        <Line type="monotone" dataKey="Base" stroke={chartColors.base} strokeWidth={2.5} dot={{ r: 2.5 }} activeDot={{ r: 5 }} />
-        <Line type="monotone" dataKey="Optimista" stroke={chartColors.optimista} strokeWidth={2.5} dot={{ r: 2.5 }} activeDot={{ r: 5 }} />
+        <Legend iconType="line" wrapperStyle={{ fontSize: 12, paddingTop: 8, fontFamily: 'Archivo, sans-serif' }} />
+        <Line type="monotone" dataKey="Conservador" stroke={chartColors.bronzeSoft} strokeWidth={2.5} dot={{ r: 2.5 }} activeDot={{ r: 5 }} />
+        <Line type="monotone" dataKey="Base" stroke={chartColors.bronze} strokeWidth={2.5} dot={{ r: 2.5 }} activeDot={{ r: 5 }} />
+        <Line type="monotone" dataKey="Optimista" stroke={chartColors.ink} strokeWidth={2.5} dot={{ r: 2.5 }} activeDot={{ r: 5 }} />
       </LineChart>
     </ResponsiveContainer>
   )

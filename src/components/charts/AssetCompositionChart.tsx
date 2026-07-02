@@ -1,8 +1,8 @@
 import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts'
 import { assetChartData } from '../../data/content'
-import { chartColors } from './theme'
+import { chartColors, tooltipStyle } from './theme'
 
-const COLORS = [chartColors.brand, chartColors.gold, chartColors.sand]
+const COLORS = [chartColors.ink, chartColors.bronze, chartColors.bronzeSoft]
 const total = assetChartData.reduce((s, d) => s + d.value, 0)
 
 const fmt = (n: number) =>
@@ -31,12 +31,7 @@ export default function AssetCompositionChart() {
             `${fmt(value)} m² · ${((value / total) * 100).toFixed(1)}%`,
             name,
           ]}
-          contentStyle={{
-            borderRadius: 12,
-            border: '1px solid #e9e1d3',
-            fontSize: 13,
-            boxShadow: '0 8px 24px -12px rgba(28,26,23,0.2)',
-          }}
+          contentStyle={tooltipStyle}
         />
         <Legend
           verticalAlign="bottom"

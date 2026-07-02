@@ -11,21 +11,21 @@ const rutas = [
 
 export default function ExecutiveSummary() {
   return (
-    <section className="section bg-white">
+    <section className="section bg-bg">
       <div className="container-tight">
         <SectionHeader
           eyebrow="Resumen ejecutivo"
           title="Comprar tierra a valor de entrada competitivo, con múltiples rutas de monetización"
         />
 
-        <div className="grid gap-8 lg:grid-cols-5 lg:gap-12">
+        <div className="grid gap-10 lg:grid-cols-5 lg:gap-14">
           <Reveal className="lg:col-span-3">
-            <div className="space-y-5 text-base leading-relaxed text-ink-soft">
+            <div className="space-y-5 text-lg font-light leading-relaxed text-fg-soft">
               <p>
                 La oportunidad consiste en adquirir un paquete inmobiliario de{' '}
-                <strong className="font-semibold text-ink">14,669.59 m²</strong> por{' '}
-                <strong className="font-semibold text-ink">$45,000,000 MXN</strong>, equivalente a{' '}
-                <strong className="font-semibold text-ink">$3,067.57/m²</strong>. El paquete incluye 17
+                <strong className="font-normal text-fg">14,669.59 m²</strong> por{' '}
+                <strong className="font-normal text-fg">$45,000,000 MXN</strong>, equivalente a{' '}
+                <strong className="font-normal text-fg">$3,067.57/m²</strong>. El paquete incluye 17
                 lotes unifamiliares, un lote de uso mixto y un macro lote con potencial para desarrollo
                 habitacional vertical.
               </p>
@@ -37,14 +37,12 @@ export default function ExecutiveSummary() {
           </Reveal>
 
           <Reveal delay={0.1} className="lg:col-span-2">
-            <div className="card p-6">
-              <h3 className="text-sm font-semibold uppercase tracking-wide text-brand-600">
-                Rutas de monetización
-              </h3>
-              <ul className="mt-4 space-y-3">
+            <div className="card p-8">
+              <h3 className="kicker">Rutas de monetización</h3>
+              <ul className="mt-5 space-y-3.5">
                 {rutas.map((r) => (
-                  <li key={r} className="flex gap-3 text-sm text-ink-soft">
-                    <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-brand-50 text-brand-700">
+                  <li key={r} className="flex gap-3 text-[15px] text-fg-soft">
+                    <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-sand text-bronze">
                       <Icon name="check" className="h-3.5 w-3.5" />
                     </span>
                     {r}

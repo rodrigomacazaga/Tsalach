@@ -10,9 +10,9 @@ import {
   YAxis,
 } from 'recharts'
 import { scenarioChartData } from '../../data/content'
-import { axisStyle, chartColors, compactMXN, fullMXN } from './theme'
+import { axisStyle, chartColors, compactMXN, fullMXN, tooltipStyle } from './theme'
 
-const BAR_COLORS = [chartColors.conservador, chartColors.base, chartColors.expansivo]
+const BAR_COLORS = [chartColors.bronzeSoft, chartColors.bronze, chartColors.ink]
 
 export default function ScenarioUtilityChart() {
   return (
@@ -28,14 +28,9 @@ export default function ScenarioUtilityChart() {
           width={52}
         />
         <Tooltip
-          cursor={{ fill: 'rgba(51,88,73,0.06)' }}
+          cursor={{ fill: 'rgba(154,106,60,0.08)' }}
           formatter={(v: number) => [fullMXN(v), 'Utilidad']}
-          contentStyle={{
-            borderRadius: 12,
-            border: '1px solid #e9e1d3',
-            fontSize: 13,
-            boxShadow: '0 8px 24px -12px rgba(28,26,23,0.2)',
-          }}
+          contentStyle={tooltipStyle}
         />
         <Bar dataKey="Utilidad" radius={[6, 6, 0, 0]} maxBarSize={90}>
           {scenarioChartData.map((_, i) => (
