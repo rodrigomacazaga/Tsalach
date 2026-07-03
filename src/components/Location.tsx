@@ -47,7 +47,7 @@ export default function Location() {
 
         <Reveal delay={0.12}>
           <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <p className="mono-note">{MAPS.label} · ubicación exacta por validar</p>
+            <p className="mono-note">{MAPS.label}</p>
             <a
               href={MAPS.linkUrl}
               target="_blank"
@@ -79,8 +79,9 @@ export default function Location() {
                 <Icon name="alert" />
               </span>
               <p className="text-sm leading-snug text-fg-soft">
-                Mapa de <strong className="font-semibold text-fg">zona de referencia</strong>; coordenadas exactas{' '}
-                <span className="font-mono text-[13px] text-fg-mute">pendientes de validación</span>.
+                Ubicación del desarrollo <strong className="font-semibold text-fg">Tsalach Residencial</strong>. Los
+                límites exactos de los lotes del paquete se{' '}
+                <span className="font-mono text-[13px] text-fg-mute">confirman en due diligence</span>.
               </p>
             </div>
           </Reveal>

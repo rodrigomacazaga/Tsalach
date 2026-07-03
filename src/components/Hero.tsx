@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { heroMetrics } from '../data/content'
+import { heroMetrics, HERO_IMAGE } from '../data/content'
 import Icon from './Icon'
 import ImagePlaceholder from './ImagePlaceholder'
 import { scrollToId } from './cta'
@@ -70,8 +70,14 @@ export default function Hero() {
             className="relative"
           >
             <ImagePlaceholder
-              alt="Vista conceptual del entorno urbano de Querétaro con edificaciones de media y media alta densidad"
-              caption="Entorno urbano de Querétaro — referencia visual (aquí va una foto real)"
+              src={HERO_IMAGE}
+              tag={HERO_IMAGE ? 'Tsalach Residencial' : 'Vista conceptual'}
+              alt="Tsalach Residencial, Querétaro — entorno urbano de media y media alta densidad, a ~5 min de ANTEA"
+              caption={
+                HERO_IMAGE
+                  ? 'Tsalach Residencial · Querétaro'
+                  : 'Tsalach Residencial · Querétaro — coloca una foto oficial (ver README)'
+              }
               className="aspect-[4/3] w-full"
             />
           </motion.div>

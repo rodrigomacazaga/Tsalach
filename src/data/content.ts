@@ -8,6 +8,13 @@
 export const WHATSAPP_NUMBER = '524424440864' // código país (52 México) + número a 10 dígitos, sin signos
 export const CONTACT_EMAIL = 'mariomacazaga@gmail.com'
 
+/**
+ * Foto principal del hero. Coloca el archivo en `public/` (p.ej.
+ * `public/tsalach-hero.jpg`) y pon aquí su ruta: `'/tsalach-hero.jpg'`.
+ * Si se deja vacío, se muestra un marcador conceptual (sin imagen rota).
+ */
+export const HERO_IMAGE = ''
+
 // Helpers de formato
 export const mxn = (n: number) =>
   new Intl.NumberFormat('es-MX', {
@@ -482,8 +489,8 @@ export const locationCards = [
  * cambia `query` por las coordenadas o dirección validadas (ver README).
  */
 export const MAPS = {
-  query: 'ANTEA Lifestyle Center, Querétaro',
-  label: 'Zona de referencia · Av. 5 de Febrero / ANTEA, Querétaro',
+  query: 'Tsalach Residencial, Querétaro',
+  label: 'Tsalach Residencial · El Salitre / Juriquilla, Querétaro — a ~5 min de ANTEA',
   // Mapa de calles (interactivo)
   get embedUrl() {
     return `https://www.google.com/maps?q=${encodeURIComponent(this.query)}&z=13&output=embed`

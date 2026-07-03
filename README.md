@@ -57,25 +57,32 @@ Arrastra la carpeta `dist/` a la zona de deploy de Netlify.
 
 ## 4. Cómo cambiar las imágenes
 
-Las imágenes son **marcadores conceptuales SVG** (componente `src/components/ImagePlaceholder.tsx`)
-para no aparentar que el desarrollo ya está construido.
+**Foto principal (hero) — la forma más rápida:**
 
-Para usar fotos reales (libres de derechos o propias):
+1. Coloca la foto oficial en `public/` (p. ej. `public/tsalach-hero.jpg`).
+2. En `src/data/content.ts`, pon su ruta:
 
-1. Coloca la imagen en `public/` (p. ej. `public/queretaro-vialidad.jpg`).
-2. Sustituye el componente `<ImagePlaceholder ... />` por un `<img>` con la misma proporción:
+```ts
+export const HERO_IMAGE = '/tsalach-hero.jpg' // vacío '' = marcador conceptual
+```
+
+Listo. El componente muestra la foto y, si por algo falla al cargar, cae
+automáticamente al marcador (nunca hay imagen rota).
+
+**Otras imágenes:** el resto usa `ImagePlaceholder`, que también acepta `src`:
 
 ```tsx
-<img
-  src="/queretaro-vialidad.jpg"
-  alt="Descripción real y precisa de la imagen"
-  loading="lazy"
-  className="aspect-[4/3] w-full rounded-2xl object-cover"
+<ImagePlaceholder
+  src="/entorno-tsalach.jpg"
+  alt="Descripción real y precisa"
+  caption="Tsalach Residencial · Querétaro"
+  className="aspect-[4/3] w-full"
 />
 ```
 
 > Usa `alt` descriptivo (accesibilidad + SEO) y **no** uses imágenes que hagan parecer construido el
-> desarrollo si no existe evidencia.
+> desarrollo si no existe evidencia. Las fotos de los portales (Lamudi, homify, TratoDirecto) son del
+> promotor: usa los **archivos originales**, no enlaces a esos sitios.
 
 ## 4.1 Cómo cambiar la ubicación del mapa (Google Maps)
 
