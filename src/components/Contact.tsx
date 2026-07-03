@@ -52,10 +52,10 @@ export default function Contact() {
 
             <ul className="mt-7 space-y-3">
               {[
+                'Memorándum de inversión (PDF)',
                 'Modelo financiero editable',
                 'Carpeta legal preliminar',
-                'Comparables de mercado',
-                'Calendario de presentación',
+                'Comparables de mercado y calendario',
               ].map((item) => (
                 <li key={item} className="flex items-center gap-3 text-[15px] text-fg-soft">
                   <span className="flex h-5 w-5 flex-none items-center justify-center rounded-full bg-sand text-bronze">
@@ -82,6 +82,17 @@ export default function Contact() {
                   {CONTACT_EMAIL}
                 </a>
               </p>
+              <p className="mt-4 text-sm text-fg-soft">
+                ¿Prefieres un vistazo rápido?{' '}
+                <a
+                  href="/Teaser-Inversion-Tsalach-2026.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-bronze underline underline-offset-2"
+                >
+                  Descarga el resumen ejecutivo (PDF, 5 págs.)
+                </a>
+              </p>
             </div>
           </Reveal>
 
@@ -95,10 +106,19 @@ export default function Contact() {
                   </span>
                   <h3 className="mt-4 font-serif text-xl font-normal text-fg">Solicitud recibida</h3>
                   <p className="mt-2 max-w-sm text-sm text-fg-soft">
-                    Gracias por tu interés. Nos pondremos en contacto para compartir el paquete completo
-                    de información.
+                    Gracias por tu interés. Descarga el memorándum de inversión completo; también nos
+                    pondremos en contacto contigo.
                   </p>
-                  <button onClick={() => setStatus('idle')} className="btn-secondary mt-6">
+                  <a
+                    href="/Memorandum-Inversion-Tsalach-2026.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary mt-6"
+                  >
+                    <Icon name="doc" className="h-4 w-4" />
+                    Descargar memorándum (PDF)
+                  </a>
+                  <button onClick={() => setStatus('idle')} className="btn-secondary mt-3">
                     Enviar otra solicitud
                   </button>
                 </div>
