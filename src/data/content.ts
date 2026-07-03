@@ -15,6 +15,31 @@ export const CONTACT_EMAIL = 'mariomacazaga@gmail.com'
  */
 export const HERO_IMAGE = '/images/aerial-entrance.jpg'
 
+/**
+ * Videos del recorrido (H.264, se sirven desde public/videos con carga diferida).
+ * Reemplaza los archivos o edita este arreglo para cambiar el recorrido.
+ */
+export const videos = [
+  {
+    src: '/videos/recorrido-aereo.mp4',
+    poster: '/images/aerial-entrance.jpg',
+    titulo: 'Recorrido aéreo',
+    desc: 'Vista con dron del acceso, caseta de vigilancia y lotes urbanizados.',
+  },
+  {
+    src: '/videos/recorrido-vista.mp4',
+    poster: '/images/entorno-vista.jpg',
+    titulo: 'Vista y entorno',
+    desc: 'Panorámica del desarrollo con la ciudad de Querétaro al fondo.',
+  },
+  {
+    src: '/videos/recorrido-obra.mp4',
+    poster: '/images/recorrido-obra.jpg',
+    titulo: 'Vialidades y amenidades',
+    desc: 'Calles urbanizadas, casa club y avances de obra en sitio.',
+  },
+]
+
 // Helpers de formato
 export const mxn = (n: number) =>
   new Intl.NumberFormat('es-MX', {
@@ -569,6 +594,7 @@ export const faqs = [
 export const navItems = [
   { id: 'resumen', label: 'Resumen' },
   { id: 'ubicacion', label: 'Ubicación' },
+  { id: 'recorrido', label: 'Recorrido' },
   { id: 'activos', label: 'Activos' },
   { id: 'escenarios', label: 'Escenarios' },
   { id: 'mercado', label: 'Mercado' },

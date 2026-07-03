@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import ExecutiveSummary from './components/ExecutiveSummary'
 import Location from './components/Location'
+import VideoGallery from './components/VideoGallery'
 import AssetComposition from './components/AssetComposition'
 import PaymentTimeline from './components/PaymentTimeline'
 import Scenarios from './components/Scenarios'
@@ -27,6 +28,7 @@ export default function App() {
         <Hero />
         <ExecutiveSummary />
         <Location />
+        <VideoGallery />
         <AssetComposition />
         <PaymentTimeline />
         <Scenarios />
