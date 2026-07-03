@@ -5,8 +5,8 @@
  */
 
 // ── Configuración editable ────────────────────────────────────────────────
-export const WHATSAPP_NUMBER = 'REEMPLAZAR_NUMERO' // p.ej. "5214421234567" (código país + número, sin signos)
-export const CONTACT_EMAIL = 'REEMPLAZAR_CORREO@ejemplo.com'
+export const WHATSAPP_NUMBER = '524424440864' // código país (52 México) + número a 10 dígitos, sin signos
+export const CONTACT_EMAIL = 'mariomacazaga@gmail.com'
 
 // Helpers de formato
 export const mxn = (n: number) =>
