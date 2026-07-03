@@ -13,7 +13,7 @@ export const CONTACT_EMAIL = 'mariomacazaga@gmail.com'
  * `public/tsalach-hero.jpg`) y pon aquí su ruta: `'/tsalach-hero.jpg'`.
  * Si se deja vacío, se muestra un marcador conceptual (sin imagen rota).
  */
-export const HERO_IMAGE = ''
+export const HERO_IMAGE = '/images/aerial-entrance.jpg'
 
 // Helpers de formato
 export const mxn = (n: number) =>

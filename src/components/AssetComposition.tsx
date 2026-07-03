@@ -1,6 +1,7 @@
 import { assets, DEAL, mxn, num } from '../data/content'
 import AssetCompositionChart from './charts/AssetCompositionChart'
 import ChartCard from './charts/ChartCard'
+import Icon from './Icon'
 import Reveal from './Reveal'
 import SectionHeader from './SectionHeader'
 
@@ -106,6 +107,35 @@ export default function AssetComposition() {
             </div>
           </Reveal>
         </div>
+
+        {/* Plano de sembrado oficial */}
+        <Reveal delay={0.1}>
+          <figure className="mt-8 card overflow-hidden p-0">
+            <div className="flex flex-col gap-1 border-b border-line p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+              <div>
+                <h3 className="font-serif text-lg font-normal text-fg">Plano de sembrado oficial</h3>
+                <p className="mono-note mt-1">Tsalach Residencial · Parcela 145 · Abril–Mayo 2026</p>
+              </div>
+              <a
+                href="/images/plano-tsalach.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-fit items-center gap-1.5 whitespace-nowrap text-sm font-medium text-bronze hover:underline"
+              >
+                <Icon name="pin" className="h-4 w-4" />
+                Ver plano completo
+              </a>
+            </div>
+            <a href="/images/plano-tsalach.jpg" target="_blank" rel="noopener noreferrer" className="block bg-white">
+              <img
+                src="/images/plano-tsalach.jpg"
+                alt="Plano de sembrado oficial de Tsalach Residencial (Parcela 145): distribución de condominios, lotes, vialidades y áreas verdes"
+                loading="lazy"
+                className="h-auto w-full"
+              />
+            </a>
+          </figure>
+        </Reveal>
       </div>
     </section>
   )

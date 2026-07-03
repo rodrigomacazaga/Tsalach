@@ -60,6 +60,26 @@ export default function Location() {
           </div>
         </Reveal>
 
+        {/* Foto real del entorno (fotograma de video oficial) */}
+        <Reveal delay={0.1}>
+          <figure className="mt-8 overflow-hidden rounded-card border border-line">
+            <div className="relative">
+              <img
+                src="/images/entorno-vista.jpg"
+                alt="Vista desde Tsalach Residencial hacia la ciudad de Querétaro: lotes urbanizados, vialidades y skyline al fondo"
+                loading="lazy"
+                className="h-auto w-full"
+              />
+              <span className="pointer-events-none absolute left-3 top-3 inline-flex items-center rounded-full border border-transparent bg-ink/70 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-ondark">
+                Tsalach Residencial
+              </span>
+            </div>
+            <figcaption className="mono-note bg-surface p-4">
+              Vista del entorno desde el desarrollo — lotes urbanizados y skyline de Querétaro al fondo.
+            </figcaption>
+          </figure>
+        </Reveal>
+
         {/* Atributos del entorno */}
         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {locationCards.map((c, i) => (
