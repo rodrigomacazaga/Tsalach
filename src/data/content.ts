@@ -515,7 +515,7 @@ export const locationCards = [
  */
 export const MAPS = {
   // Coordenadas exactas del predio de Tsalach Residencial (lat,lng).
-  coords: '20.6568699,-100.4242968',
+  coords: '20.656467,-100.422096',
   label: 'Tsalach Residencial · Juriquilla, Querétaro — a ~5 min de ANTEA',
   // Mapa de calles (interactivo), con contexto de vialidades
   get embedUrl() {
@@ -600,7 +600,6 @@ export const navItems = [
   { id: 'mercado', label: 'Mercado' },
   { id: 'absorcion', label: 'Absorción' },
   { id: 'riesgos', label: 'Riesgos' },
-  { id: 'due-diligence', label: 'Due Diligence' },
   { id: 'contacto', label: 'Contacto' },
 ]
 

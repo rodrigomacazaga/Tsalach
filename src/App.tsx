@@ -12,7 +12,6 @@ import Absorption from './components/Absorption'
 import InvestmentThesis from './components/InvestmentThesis'
 import Timeline from './components/Timeline'
 import RiskMatrix from './components/RiskMatrix'
-import DueDiligenceChecklist from './components/DueDiligenceChecklist'
 import FAQ from './components/FAQ'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -37,7 +36,7 @@ export default function App() {
         <InvestmentThesis />
         <Timeline />
         <RiskMatrix />
-        <DueDiligenceChecklist />
+        {/* Due Diligence oculta temporalmente (por solicitud) — reactivar restaurando <DueDiligenceChecklist /> y el nav item 'due-diligence' */}
         <FAQ />
         <Contact />
       </main>

@@ -93,7 +93,7 @@ Para ajustar el punto, edita `MAPS.coords` en `src/data/content.ts`:
 
 ```ts
 export const MAPS = {
-  coords: '20.6568699,-100.4242968', // ← "lat,lng"
+  coords: '20.656467,-100.422096', // ← "lat,lng"
   label: 'Tsalach Residencial · Juriquilla, Querétaro — a ~5 min de ANTEA',
   ...
 }
