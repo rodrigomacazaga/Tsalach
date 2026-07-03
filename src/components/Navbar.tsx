@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { navItems } from '../data/content'
+import { navItems, primaryNavItems } from '../data/content'
 import { scrollToId } from './cta'
 
 export default function Navbar() {
@@ -42,32 +42,32 @@ export default function Navbar() {
         scrolled ? 'border-b border-line bg-bg/90 backdrop-blur-md' : 'bg-bg/70 backdrop-blur-sm'
       }`}
     >
-      <nav className="container-tight flex h-16 items-center justify-between">
+      <nav className="container-tight flex h-16 items-center justify-between gap-4">
         {/* Marca */}
         <button
           onClick={() => go('resumen')}
-          className="flex items-center gap-2.5 text-left"
+          className="flex flex-none items-center gap-2.5 text-left"
           aria-label="Inversión Tsalach 2026 — ir al inicio"
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-ink font-serif text-base text-ondark">
+          <span className="flex h-9 w-9 flex-none items-center justify-center rounded-lg bg-ink font-serif text-base text-ondark">
             T
           </span>
-          <span className="leading-none">
-            <span className="block font-serif text-[15px] text-fg">Inversión Tsalach</span>
-            <span className="mt-0.5 block font-mono text-[10px] tracking-[0.15em] text-bronze">2026 · QUERÉTARO</span>
+          <span className="leading-tight">
+            <span className="block whitespace-nowrap font-serif text-[15px] text-fg">Inversión Tsalach</span>
+            <span className="mt-0.5 block whitespace-nowrap font-mono text-[10px] tracking-[0.15em] text-bronze">
+              2026 · QUERÉTARO
+            </span>
           </span>
         </button>
 
-        {/* Desktop */}
-        <ul className="hidden items-center gap-0.5 lg:flex">
-          {navItems.map((item) => (
+        {/* Desktop — nav compacto (secciones completas en el menú móvil y footer) */}
+        <ul className="hidden items-center xl:flex">
+          {primaryNavItems.map((item) => (
             <li key={item.id}>
               <button
                 onClick={() => go(item.id)}
-                className={`rounded-full px-3 py-2 text-sm font-medium transition-colors ${
-                  active === item.id
-                    ? 'text-bronze'
-                    : 'text-fg-mute hover:text-fg'
+                className={`whitespace-nowrap rounded-full px-2.5 py-2 text-[13px] font-medium transition-colors ${
+                  active === item.id ? 'text-bronze' : 'text-fg-mute hover:text-fg'
                 }`}
               >
                 {item.label}
@@ -76,16 +76,16 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden lg:block">
-          <button onClick={() => go('contacto')} className="btn-primary px-5 py-2.5 text-sm">
+        <div className="hidden flex-none xl:block">
+          <button onClick={() => go('contacto')} className="btn-primary whitespace-nowrap px-4 py-2 text-[13px]">
             Solicitar información
           </button>
         </div>
 
-        {/* Hamburguesa (móvil / tablet) */}
+        {/* Hamburguesa (móvil / tablet / laptop chico) */}
         <button
           onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-line text-fg lg:hidden"
+          className="flex h-10 w-10 flex-none items-center justify-center rounded-lg border border-line text-fg xl:hidden"
           aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={open}
           aria-controls="mobile-menu"
@@ -99,8 +99,8 @@ export default function Navbar() {
       {/* Menú móvil */}
       <div
         id="mobile-menu"
-        className={`overflow-hidden border-t border-line bg-bg transition-[max-height] duration-300 ease-in-out lg:hidden ${
-          open ? 'max-h-[520px]' : 'max-h-0'
+        className={`overflow-hidden border-t border-line bg-bg transition-[max-height] duration-300 ease-in-out xl:hidden ${
+          open ? 'max-h-[560px]' : 'max-h-0'
         }`}
       >
         <ul className="container-tight flex flex-col gap-1 py-4">

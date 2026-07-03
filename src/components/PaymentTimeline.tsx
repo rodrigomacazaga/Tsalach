@@ -12,32 +12,28 @@ export default function PaymentTimeline() {
           description="Estructura preliminar de desembolsos. Debe validarse contractualmente el número definitivo de exhibiciones, condiciones suspensivas, garantías y entregables de urbanización."
         />
 
-        <div className="relative">
-          {/* Línea vertical */}
-          <div className="absolute left-[19px] top-2 bottom-2 w-px bg-line sm:left-1/2 sm:-translate-x-1/2" aria-hidden="true" />
-
-          <ol className="space-y-6">
-            {paymentPlan.map((p, i) => (
-              <Reveal key={p.n} delay={i * 0.08}>
-                <li className={`relative flex gap-5 sm:w-1/2 ${i % 2 ? 'sm:ml-auto sm:pl-10' : 'sm:pr-10 sm:text-right'}`}>
-                  {/* Nodo */}
-                  <span
-                    className={`absolute left-0 top-1.5 z-10 flex h-10 w-10 flex-none items-center justify-center rounded-full border-4 border-bg bg-ink font-serif text-base text-ondark sm:left-auto ${
-                      i % 2 ? 'sm:-left-5' : 'sm:-right-5'
-                    }`}
-                  >
+        {/* Tres exhibiciones como tarjetas — sin superposición en ningún tamaño */}
+        <ol className="grid gap-5 md:grid-cols-3">
+          {paymentPlan.map((p, i) => (
+            <Reveal key={p.n} delay={i * 0.08}>
+              <li className="card flex h-full flex-col p-6">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-ink font-serif text-lg text-ondark">
                     {p.n}
                   </span>
-                  <div className={`card ml-14 w-full p-6 sm:ml-0 ${i % 2 ? '' : 'sm:text-left'}`}>
-                    <div className="font-serif text-2xl font-normal text-fg">{mxn(p.monto)}</div>
-                    <p className="mt-1.5 text-sm font-medium text-bronze">{p.cuando}</p>
-                    {p.destino && <p className="mt-2 text-sm text-fg-soft">Destino: {p.destino}</p>}
-                  </div>
-                </li>
-              </Reveal>
-            ))}
-          </ol>
-        </div>
+                  <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-fg-mute">
+                    Pago {p.n} de {paymentPlan.length}
+                  </span>
+                </div>
+                <div className="mt-5 font-serif text-3xl font-normal leading-tight text-fg">{mxn(p.monto)}</div>
+                <p className="mt-2 text-sm font-medium text-bronze">{p.cuando}</p>
+                {p.destino && (
+                  <p className="mt-3 border-t border-line pt-3 text-sm text-fg-soft">Destino: {p.destino}</p>
+                )}
+              </li>
+            </Reveal>
+          ))}
+        </ol>
 
         <Reveal delay={0.2}>
           <div className="card-dark mt-8 flex flex-col items-center gap-2 p-8 text-center sm:flex-row sm:justify-between sm:text-left">

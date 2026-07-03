@@ -77,6 +77,29 @@ Para usar fotos reales (libres de derechos o propias):
 > Usa `alt` descriptivo (accesibilidad + SEO) y **no** uses imágenes que hagan parecer construido el
 > desarrollo si no existe evidencia.
 
+## 4.1 Cómo cambiar la ubicación del mapa (Google Maps)
+
+La sección **Ubicación** incrusta un mapa de Google (sin API key) centrado en la
+**zona de referencia**. La ubicación exacta del paquete está pendiente de validación.
+
+Para fijar el punto exacto, edita `MAPS.query` en `src/data/content.ts`:
+
+```ts
+export const MAPS = {
+  query: 'ANTEA Lifestyle Center, Querétaro', // ← dirección o "lat,lng" validados
+  label: 'Zona de referencia · Av. 5 de Febrero / ANTEA, Querétaro',
+  ...
+}
+```
+
+Puedes usar una dirección (`"Av. 5 de Febrero 123, Querétaro"`) o coordenadas
+(`"20.6297,-100.4058"`). El mapa embebido y el enlace "Ver en Google Maps" se
+actualizan automáticamente.
+
+> Las fotos del entorno se dejan como referencia conceptual: no se incluyen
+> imágenes que hagan parecer construido el desarrollo sin evidencia. Para usar
+> fotos/renders reales, ver la sección 4.
+
 ## 5. Cómo cambiar el número de WhatsApp
 
 Edita la constante en `src/data/content.ts`:

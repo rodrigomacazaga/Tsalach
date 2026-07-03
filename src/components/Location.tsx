@@ -1,6 +1,5 @@
-import { locationCards } from '../data/content'
+import { locationCards, MAPS } from '../data/content'
 import Icon from './Icon'
-import ImagePlaceholder from './ImagePlaceholder'
 import Reveal from './Reveal'
 import SectionHeader from './SectionHeader'
 
@@ -17,14 +16,38 @@ export default function Location() {
         />
 
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
+          {/* Mapa real (zona de referencia) */}
           <Reveal>
-            <ImagePlaceholder
-              alt="Imagen de apoyo para representar la conectividad urbana y vialidades principales cercanas al paquete inmobiliario en Querétaro"
-              caption="Referencia de conectividad urbana (aquí va una foto real)"
-              className="aspect-[4/3] w-full"
-            />
+            <div className="card overflow-hidden p-0">
+              <div className="relative aspect-[4/3] w-full bg-sand">
+                <iframe
+                  title="Mapa de la zona de referencia — Av. 5 de Febrero / ANTEA, Querétaro"
+                  src={MAPS.embedUrl}
+                  className="absolute inset-0 h-full w-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+                <span className="pointer-events-none absolute left-3 top-3 inline-flex items-center rounded-full border border-line bg-bg/90 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.14em] text-fg-mute">
+                  Zona de referencia
+                </span>
+              </div>
+              <div className="flex flex-col gap-2 p-4 sm:flex-row sm:items-center sm:justify-between">
+                <p className="mono-note">{MAPS.label} · ubicación exacta por validar</p>
+                <a
+                  href={MAPS.linkUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 whitespace-nowrap text-sm font-medium text-bronze hover:underline"
+                >
+                  <Icon name="pin" className="h-4 w-4" />
+                  Ver en Google Maps
+                </a>
+              </div>
+            </div>
           </Reveal>
 
+          {/* Atributos del entorno */}
           <div className="grid gap-3 sm:grid-cols-2">
             {locationCards.map((c, i) => (
               <Reveal key={c} delay={i * 0.06}>
@@ -37,14 +60,18 @@ export default function Location() {
               </Reveal>
             ))}
 
-            {/* Placeholder de mapa */}
+            {/* Nota de validación */}
             <Reveal delay={0.3} className="sm:col-span-2">
-              <ImagePlaceholder
-                tag="Mapa · por validar"
-                alt="Espacio reservado para mapa de ubicación; coordenadas exactas por integrar y validar"
-                caption="Mapa de ubicación por integrar / validar con coordenadas exactas"
-                className="aspect-[16/7] w-full"
-              />
+              <div className="card flex items-start gap-3 border-dashed p-5">
+                <span className="flex h-10 w-10 flex-none items-center justify-center rounded-[14px] bg-sand text-bronze">
+                  <Icon name="alert" />
+                </span>
+                <p className="text-sm leading-snug text-fg-soft">
+                  El mapa muestra la <strong className="font-semibold text-fg">zona de referencia</strong> descrita en la
+                  documentación comercial. Las coordenadas exactas del paquete están{' '}
+                  <span className="font-mono text-[13px] text-fg-mute">pendientes de validación (due diligence)</span>.
+                </p>
+              </div>
             </Reveal>
           </div>
         </div>

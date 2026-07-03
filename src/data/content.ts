@@ -475,6 +475,23 @@ export const locationCards = [
   'Acceso a servicios urbanos',
 ]
 
+/**
+ * Mapa de referencia. La ubicación EXACTA del paquete está pendiente de validar
+ * (due diligence); el mapa muestra la zona de referencia según la documentación
+ * comercial (Av. 5 de Febrero / ANTEA, Querétaro). Para fijar el punto exacto,
+ * cambia `query` por las coordenadas o dirección validadas (ver README).
+ */
+export const MAPS = {
+  query: 'ANTEA Lifestyle Center, Querétaro',
+  label: 'Zona de referencia · Av. 5 de Febrero / ANTEA, Querétaro',
+  get embedUrl() {
+    return `https://www.google.com/maps?q=${encodeURIComponent(this.query)}&z=13&output=embed`
+  },
+  get linkUrl() {
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(this.query)}`
+  },
+}
+
 // ── FAQ ───────────────────────────────────────────────────────────────────
 export const faqs = [
   {
@@ -547,3 +564,8 @@ export const navItems = [
   { id: 'due-diligence', label: 'Due Diligence' },
   { id: 'contacto', label: 'Contacto' },
 ]
+
+// Nav compacto para escritorio (las secciones completas viven en el menú móvil
+// y en el footer). Reduce la saturación de la barra superior.
+const primaryIds = ['resumen', 'ubicacion', 'activos', 'escenarios', 'mercado', 'riesgos', 'contacto']
+export const primaryNavItems = navItems.filter((n) => primaryIds.includes(n.id))
