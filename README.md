@@ -86,22 +86,22 @@ automáticamente al marcador (nunca hay imagen rota).
 
 ## 4.1 Cómo cambiar la ubicación del mapa (Google Maps)
 
-La sección **Ubicación** incrusta un mapa de Google (sin API key) centrado en la
-**zona de referencia**. La ubicación exacta del paquete está pendiente de validación.
+La sección **Ubicación** incrusta un mapa de Google (sin API key) centrado en las
+coordenadas del predio de **Tsalach Residencial** (mapa de calles + vista satelital).
 
-Para fijar el punto exacto, edita `MAPS.query` en `src/data/content.ts`:
+Para ajustar el punto, edita `MAPS.coords` en `src/data/content.ts`:
 
 ```ts
 export const MAPS = {
-  query: 'ANTEA Lifestyle Center, Querétaro', // ← dirección o "lat,lng" validados
-  label: 'Zona de referencia · Av. 5 de Febrero / ANTEA, Querétaro',
+  coords: '20.6568699,-100.4242968', // ← "lat,lng"
+  label: 'Tsalach Residencial · Juriquilla, Querétaro — a ~5 min de ANTEA',
   ...
 }
 ```
 
-Puedes usar una dirección (`"Av. 5 de Febrero 123, Querétaro"`) o coordenadas
-(`"20.6297,-100.4058"`). El mapa embebido y el enlace "Ver en Google Maps" se
-actualizan automáticamente.
+El mapa de calles, la vista aérea (satélite) y el enlace "Ver en Google Maps" se
+actualizan automáticamente. El nivel de zoom se controla en los getters
+`embedUrl` (`z=16`) y `satelliteUrl` (`z=18`).
 
 > Las fotos del entorno se dejan como referencia conceptual: no se incluyen
 > imágenes que hagan parecer construido el desarrollo sin evidencia. Para usar

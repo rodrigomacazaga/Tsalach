@@ -489,18 +489,19 @@ export const locationCards = [
  * cambia `query` por las coordenadas o dirección validadas (ver README).
  */
 export const MAPS = {
-  query: 'Tsalach Residencial, Querétaro',
-  label: 'Tsalach Residencial · El Salitre / Juriquilla, Querétaro — a ~5 min de ANTEA',
-  // Mapa de calles (interactivo)
+  // Coordenadas exactas del predio de Tsalach Residencial (lat,lng).
+  coords: '20.6568699,-100.4242968',
+  label: 'Tsalach Residencial · Juriquilla, Querétaro — a ~5 min de ANTEA',
+  // Mapa de calles (interactivo), con contexto de vialidades
   get embedUrl() {
-    return `https://www.google.com/maps?q=${encodeURIComponent(this.query)}&z=13&output=embed`
+    return `https://maps.google.com/maps?q=${this.coords}&z=16&output=embed`
   },
-  // Vista aérea / satélite del entorno (t=k)
+  // Vista aérea / satélite del predio (t=k, mayor acercamiento)
   get satelliteUrl() {
-    return `https://maps.google.com/maps?q=${encodeURIComponent(this.query)}&t=k&z=15&output=embed`
+    return `https://maps.google.com/maps?q=${this.coords}&t=k&z=18&output=embed`
   },
   get linkUrl() {
-    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(this.query)}`
+    return `https://www.google.com/maps/search/?api=1&query=${this.coords}`
   },
 }
 
