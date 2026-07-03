@@ -484,8 +484,13 @@ export const locationCards = [
 export const MAPS = {
   query: 'ANTEA Lifestyle Center, Querétaro',
   label: 'Zona de referencia · Av. 5 de Febrero / ANTEA, Querétaro',
+  // Mapa de calles (interactivo)
   get embedUrl() {
     return `https://www.google.com/maps?q=${encodeURIComponent(this.query)}&z=13&output=embed`
+  },
+  // Vista aérea / satélite del entorno (t=k)
+  get satelliteUrl() {
+    return `https://maps.google.com/maps?q=${encodeURIComponent(this.query)}&t=k&z=15&output=embed`
   },
   get linkUrl() {
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(this.query)}`
